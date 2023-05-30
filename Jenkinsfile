@@ -8,10 +8,13 @@ pipeline{
                 }
             }
             steps{
+                environment {
+                    SCANNER_HOME = tool 'sonar-scanner'
+                }
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh """
-                                ${scannerHome}/bin/sonar-scanner \
+                                ${scanner_Home}/bin/sonar-scanner \
                                 -Dsonar.projectKey=sonar-token \
                                 -Dsonar.sources=. \
                              """
