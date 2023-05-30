@@ -1,8 +1,6 @@
 pipeline{
     agent any 
-    environment {
-        SCANNER_HOME = tool 'sonar-scanner'
-    }
+     
     stages{
         stage("sonar quality check"){
             agent {
@@ -13,14 +11,8 @@ pipeline{
             steps{
                 
                 script{
-                    withSonarQubeEnv(credentialsId: 'sonar-token') {
-                            sh """
-                                ${SCANNER_HOME}/bin/sonar-scanner \
-                                -Dsonar.projectKey=sonar-token \
-                                -Dsonar.sources=. \
-                             """
-                            sh 'mvn clean package sonar-server'
-
+                    withSonarQubeEnv(credentialsId: 'sonar-token') {                            
+                            sh 'mvn clean package sonar:sonar'
                     } 
                 }  
             }
