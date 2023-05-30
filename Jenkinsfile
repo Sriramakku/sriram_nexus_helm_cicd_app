@@ -12,8 +12,8 @@ pipeline{
                 
                 script{
                     withSonarQubeEnv('sonar-token', envOnly: true) {                            
-                            sh 'mvn clean package sonar:sonar'
                             println ${env.SONAR_HOST_URL} 
+                            sh 'mvn clean package sonar:sonar'                            
                     } 
                 }  
             }
