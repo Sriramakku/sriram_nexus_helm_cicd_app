@@ -10,7 +10,7 @@ pipeline{
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar-token') {                            
-                            sh" ${SCANNER_HOME**}**}/bin/sonar-scanner \
+                            sh" ${SCANNER_HOME**}/bin/sonar-scanner \
                                 -Dsonar.projectKey=sonar-server \
                                 -Dsonar.sources=. "
                             sh 'mvn clean package sonar-server'
