@@ -9,11 +9,14 @@ pipeline{
             }
             steps{
                 script{
-                    withSonarQubeEnv(credentialsId: 'sonar-token') {                            
-                            sh" ${SCANNER_HOME**}/bin/sonar-scanner \
-                                -Dsonar.projectKey=sonar-server \
-                                -Dsonar.sources=. "
+                    withSonarQubeEnv(credentialsId: 'sonar-token') {
+                            sh """
+                                ${scannerHome}/bin/sonar-scanner \
+                                -Dsonar.projectKey=your_project_key_created_in_sonarqube_as_project \
+                                -Dsonar.sources=. \
+                             """
                             sh 'mvn clean package sonar-server'
+
                     } 
                 }  
             }
