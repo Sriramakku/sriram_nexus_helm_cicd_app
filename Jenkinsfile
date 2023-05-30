@@ -12,7 +12,7 @@ pipeline{
                     withSonarQubeEnv(credentialsId: 'sonar-token') {
                             sh """
                                 ${scannerHome}/bin/sonar-scanner \
-                                -Dsonar.projectKey=your_project_key_created_in_sonarqube_as_project \
+                                -Dsonar.projectKey=sonar-token \
                                 -Dsonar.sources=. \
                              """
                             sh 'mvn clean package sonar-server'
