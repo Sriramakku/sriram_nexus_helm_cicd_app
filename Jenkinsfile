@@ -11,7 +11,7 @@ pipeline{
             steps{                
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar-token'){                          
-                        sh 'mvn clean package sonar:sonar -Dsonar.projectKey=sriram_nexus_helm_cicd_app -Dsonar.projectName='sriram_nexus_helm_cicd_app''            
+                        sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=sriram_nexus_helm_cicd_app -Dsonar.projectName='sriram_nexus_helm_cicd_app''            
                         //sh 'mvn clean install'                                    
                     }                     
                 }  
