@@ -24,12 +24,12 @@ pipeline{
         //         }                     
         //     }  
         // }        
-        stage("docker build and push to Nexus repo"){                      
-            steps{                
-                script{
+        // stage("docker build and push to Nexus repo"){                      
+        //     steps{                
+        //         script{
                                                      
-                }                     
-            }  
-        }       
+        //         }                     
+        //     }  
+        // }       
     }
 }
