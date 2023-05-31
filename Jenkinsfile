@@ -1,16 +1,18 @@
 pipeline{
-    agent {
-        docker {
-            image 'maven'
-        }
-    }      
+    agent any 
+      
     stages{
-        stage("sonar quality check"){            
+        stage("sonar quality check"){   
+            agent {
+                docker {
+                    image 'maven'
+                }
+            }         
             steps{                
                 script{
-                    withSonarQubeEnv() {                            
-                        sh 'mvn sonar:sonar'            
-                        sh 'mvn clean install'                                    
+                    withSonarQubeEnv('sonar-server') {                            
+                        sh 'mvn clean package sonar:sonar'            
+                        //sh 'mvn clean install'                                    
                     }                     
                 }  
             }
