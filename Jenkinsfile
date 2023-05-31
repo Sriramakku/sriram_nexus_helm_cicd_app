@@ -15,7 +15,14 @@ pipeline{
                         //sh 'mvn clean install'                                    
                     }                     
                 }  
-            }
+            }            
         }
+        stage("Quality gat status"){                      
+            steps{                
+                script{
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'                                   
+                }                     
+            }  
+        }            
     }
 }
