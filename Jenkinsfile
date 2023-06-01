@@ -21,11 +21,8 @@ pipeline{
         }
         stage("Quality gat status"){                      
             steps{                
-                script{
-                    withSonarQubeEnv(credentialsId: 'sonar-token'){ 
-                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token' 
-                    }                                  
-                }                     
+                 waitForQualityGate abortPipeline: true, credentialsId: 'sonar-token'                      
+                                     
             }  
         }      
         // stage("Quality Gate"){
