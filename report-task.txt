@@ -1,0 +1,5 @@
+projectKey=com.javatechie:devops-integration
+serverUrl=http://3.95.190.60:9000
+dashboardUrl=http://3.95.190.60:9000/dashboard?id=com.javatechie%3Adevops-integration
+ceTaskId=AYh3LKo1SYB1IrsGXkvG
+ceTaskUrl=http://example.com:9000/api/ce/task?id=AYh3LKo1SYB1IrsGXkvG
