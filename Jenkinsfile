@@ -78,7 +78,18 @@ pipeline{
                     }
                 }                     
             }  
-        }      
+        }
+        stage('Deploying application on k8s cluster') {
+            steps {
+               script{
+                   kubeconfig(credentialsId: 'mykubeconfig', serverUrl: 'https://172.31.7.228:6443') {
+                        dir('kubernetes/') {
+                          sh 'helm upgrade --install --set image.repository="44.203.155.24:8083/springapp" --set image.tag="${VERSION}" mycicdapp myapp/ ' 
+                        }
+                    }
+               }
+            }
+        }     
     }
     post {
 		always {
