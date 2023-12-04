@@ -5,7 +5,7 @@ pipeline{
     //     choice(name: 'action', choices: ['apply', 'destroy'], description: 'Select the action to perform')
     // }
     environment {
-        VERSION = "Pipeline sriram_java_app_cicd_"+"${env.BUILD_ID}"
+        VERSION = "${env.BUILD_ID}"
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         AWS_DEFAULT_REGION    = 'us-east-1'
